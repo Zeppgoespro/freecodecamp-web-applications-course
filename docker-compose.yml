@@ -1,0 +1,61 @@
+version: '3'
+
+networks:
+  internal:
+
+services:
+  nginx:
+    image: nginx:stable-alpine
+    container_name: nginx
+    ports:
+      - '8080:80'
+    volumes:
+      - ./project-core:/var/www
+      - ./config/nginx:/etc/nginx/conf.d
+      - ./data/logs:/var/log/nginx/
+    depends_on:
+      - php
+      - mysql-wa4e
+    networks:
+      - internal
+
+  php:
+    build:
+      context: ./config/php
+      dockerfile: Dockerfile
+    container_name: php
+    volumes:
+      - ./project-core:/var/www
+      #- ./config/php/php.ini:/usr/local/etc/php/php.ini
+    ports:
+      - '9000:9000'
+    networks:
+      - internal
+
+  mysql-wa4e:
+    image: mysql:latest
+    container_name: mysql-wa4e
+    restart: unless-stopped
+    command:
+      - --default-authentication-plugin=mysql_native_password
+      - --innodb_use_native_aio=0
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: yesenin
+    networks:
+      - internal
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=mysql
+    restart: unless-stopped # or 'always'
+    ports:
+      - '8081:80'
+    networks:
+      - internal
