@@ -109,7 +109,7 @@ function insert_educations($pdo, $profile_id) {
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     if ($row !== false) $institution_id = $row['institution_id'];
     if ($institution_id === false):
-      $stmt = $pdo->prepare('INSERT INTO institution (name) VALUES (:nm)');
+      $stmt = $pdo->prepare('INSERT INTO institutions (name) VALUES (:nm)');
       $stmt->execute(array(':nm' => $school));
       $institution_id = $pdo->lastInsertId();
     endif;
