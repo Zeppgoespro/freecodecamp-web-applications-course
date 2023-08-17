@@ -1,9 +1,7 @@
 <?php
 
   require_once './pdo.php';
-
   session_start();
-
   require_once './util.php';
 
   if (isset($_POST['cancel_login'])) {
@@ -61,7 +59,7 @@
 </head>
 <body>
 
-  <h1>Please Log In</h1>
+  <h2>Please Log In</h2>
 
   <?php
 

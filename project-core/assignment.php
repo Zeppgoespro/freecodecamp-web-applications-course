@@ -1,13 +1,13 @@
 <?php
 
   require_once './assignment/pdo.php';
-
   session_start();
-
   require_once './assignment/util.php';
 
   function print_array($array):string {
+
     $msg = 'Results found: ';
+
     for ($i = 0; $i < count($array); $i++) {
       if ($i == count($array) - 1) {
         $msg .= '<a href="./assignment/view.php?profile_id=' . $array[$i]['profile_id'] . '">' . $array[$i]['first_name'] . ' ' . $array[$i]['last_name'] . '</a>';
@@ -21,6 +21,7 @@
   if (isset($_POST['search'])):
 
     $searching_term = htmlentities($_POST['search']);
+
     if ($searching_term != ''):
       $sql = "SELECT * FROM `profiles` WHERE CONCAT (first_name, ' ', last_name) LIKE :st";
       $stmt = $pdo->prepare($sql);
@@ -43,8 +44,8 @@
       $_SESSION['error'] = 'You need search for something';
       header('location: ./assignment.php');
       return;
-    endif;
 
+    endif;
   endif;
 
   if (isset($_POST['all_profiles'])):
@@ -80,7 +81,9 @@
 </head>
 <body>
 
-  <h1 style="color: indigo;"><a href="./assignment.php">Huge next-gen new century application</a></h1>
+  <a href="./home.php" style="font-size: small; color: midnightblue; text-decoration: none;"><< Return to the projects menu</a>
+
+  <h1 style="color: indigo;"><a href="./assignment.php">Huge Next-Gen New Century Application</a></h1>
 
   <?php
 

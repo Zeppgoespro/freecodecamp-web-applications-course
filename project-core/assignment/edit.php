@@ -1,11 +1,8 @@
 <?php
 
   require_once './pdo.php';
-
   session_start();
-
   require_once './util.php';
-
   authorization(); # from util.php
 
   if (isset($_POST['cancel_edit'])) {
@@ -123,8 +120,8 @@
 
   # Loading up the events (positions) and educations with util.php functions
 
-  $pos_row = load_pos ($pdo, $_REQUEST['profile_id']);
-  $edu_row = load_edu ($pdo, $_REQUEST['profile_id']);
+  $pos_row = load_pos($pdo, $_REQUEST['profile_id']);
+  $edu_row = load_edu($pdo, $_REQUEST['profile_id']);
 
 ?>
 
@@ -135,7 +132,7 @@
 </head>
 <body>
 
-  <h1>Editing profile for <?= htmlentities($_SESSION['name']) ?></h1>
+  <h2>Editing profile for <?= htmlentities($_SESSION['name']) ?></h2>
 
   <?php
 
@@ -160,10 +157,12 @@
     <input type="url" name="link" id="link" size="65" value="<?= htmlentities($row['link']) ?>"></p>
     <p><label for="summary">Summary:</label><br/>
     <textarea name="summary" id="summary" rows="10" cols="60"><?= htmlentities($row['summary']) ?></textarea></p>
+
     <p>Educations: <input type="submit" id="addEdu" value="+" style="font-weight: 700;"></p>
     <div id="eduFields">
 
       <?php
+
         $edu = 0;
 
         if ($edu_row != false):
@@ -182,10 +181,12 @@
       ?>
 
     </div>
+
     <p>Events: <input type="submit" id="addPos" value="+" style="font-weight: 700;"></p>
     <div id="posFields">
 
       <?php
+
         $pos = 0;
 
         if ($pos_row != false):
@@ -206,6 +207,7 @@
       ?>
 
     </div>
+
     <p>
       <input type="submit" value="Edit">
       <input type="submit" name="cancel_edit" value="Cancel">

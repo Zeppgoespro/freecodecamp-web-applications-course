@@ -1,11 +1,8 @@
 <?php
 
   require_once './pdo.php';
-
   session_start();
-
   require_once './util.php';
-
   authorization(); # from util.php
 
   if (isset($_POST['cancel_add'])) {
@@ -78,7 +75,7 @@
 </head>
 <body>
 
-  <h2>Adding profile for <?= htmlentities($_SESSION['name']) ?></h2>
+  <h2>Add profile for <?= htmlentities($_SESSION['name']) ?></h2>
 
   <?php
 

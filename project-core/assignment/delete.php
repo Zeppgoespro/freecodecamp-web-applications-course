@@ -1,11 +1,8 @@
 <?php
 
   require_once './pdo.php';
-
   session_start();
-
   require_once './util.php';
-
   authorization(); # from util.php
 
   if (isset($_POST['cancel_delete'])) {
@@ -60,7 +57,7 @@
 </head>
 <body>
 
-  <h1>Deleting profile</h1>
+  <h2>Deleting profile</h2>
 
   <form method="post" action="delete.php">
     <input type="hidden" name="profile_id" value="<?= $_GET['profile_id'] ?>">

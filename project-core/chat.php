@@ -38,7 +38,9 @@
 </head>
 <body>
 
-  <h1>Super Chat</h1>
+  <a href="./home.php" style="font-size: small; color: midnightblue; text-decoration: none;"><< Return to the projects menu</a>
+
+  <h2 style="color: indigo;">Super Chat</h2>
 
   <form action="chat.php" method="post">
     <div>
@@ -48,7 +50,7 @@
     </div>
   </form>
 
-  <div id="chatContent" style="margin: 20px">
+  <div id="chatContent" style="margin: 20px;">
     <img src="./chat/spinner.gif" alt="Loading...">
   </div>
 
@@ -67,7 +69,7 @@
             entry = data[i];
             $("#chatContent").append("<p><b>" + entry[0] + "</b><br/>" + entry[1] + "</p>");
           }
-          setTimeout('updateMsg()', 2000);
+          setTimeout('updateMsg()', 1000);
         }
       });
     }

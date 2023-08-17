@@ -22,7 +22,9 @@ session_start();
 </head>
 <body>
 
-  <h3>Table representation</h3>
+  <a href="./home.php" style="font-size: small; color: midnightblue; text-decoration: none;"><< Return to the projects menu</a>
+
+  <h2 style="color: indigo;">Table representation</h2>
 
   <?php
 

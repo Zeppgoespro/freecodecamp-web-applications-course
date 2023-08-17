@@ -1,9 +1,7 @@
 <?php
 
   require_once './pdo.php';
-
   session_start();
-
   require_once './util.php';
 
   if (isset($_POST['return'])):
@@ -58,7 +56,7 @@
 
   ?>
 
-  <h1>Create new user</h1>
+  <h2>Create new user</h2>
 
   <form method="post">
     <p>Account name:<br/><input type="text" name="name" placeholder="Enter account name" size="30"></p>

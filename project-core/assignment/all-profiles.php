@@ -1,9 +1,7 @@
 <?php
 
   require_once './pdo.php';
-
   session_start();
-
   require_once './util.php';
 
 ?>

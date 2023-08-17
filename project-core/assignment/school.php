@@ -7,7 +7,6 @@
   if (!isset($_COOKIE[session_name()])) die('Need to be logged in');
 
   session_start();
-
   authorization(); # from util.php
 
   header('Content-type: application/json; charset=utf-8');

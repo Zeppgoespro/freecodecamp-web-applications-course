@@ -33,7 +33,9 @@
 </head>
 <body>
 
-  <h2>Great rock albums</h2>
+  <a href="./home.php" style="font-size: small; color: midnightblue; text-decoration: none;"><< Return to the projects menu</a>
+
+  <h2 style="color: indigo;">Great rock albums</h2>
 
   <?php
 
