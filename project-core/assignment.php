@@ -235,7 +235,7 @@
         echo '<input type="submit" value="Return to beginning" name="return">';
       endif;
 
-      echo '<form>';
+      echo '</form>';
 
     endif;
 

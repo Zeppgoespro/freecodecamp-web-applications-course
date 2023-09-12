@@ -5,7 +5,7 @@ networks:
 
 services:
   nginx:
-    image: nginx:1.25.1-alpine
+    image: nginx:1.25-alpine
     container_name: nginx
     ports:
       - '8080:80'
@@ -33,7 +33,7 @@ services:
       - internal
 
   mysql-wa4e:
-    image: mysql:8.0.34
+    image: mysql:8.0
     container_name: mysql-wa4e
     restart: unless-stopped
     command:
@@ -49,7 +49,7 @@ services:
       - internal
 
   phpmyadmin:
-    image: phpmyadmin:5.2.1
+    image: phpmyadmin:5.2
     container_name: phpmyadmin
     environment:
       - PMA_ARBITRARY=1
